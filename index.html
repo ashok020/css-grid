@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css-grid</title>
+</head>
+<body>
+<div class="container">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+    <div class="box box7">7</div>
+    <div class="box box8">8</div>
+    <div class="box box9">9</div>
+</div>
+    <script src="./app.js"></script>
+</body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu','Roboto',sans-serif;
+}
+
+
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    padding: 30px;
+    background-color: white;
+    color: white;
+    font-size: 30px;
+    display: grid;
+    gap: 1rem;
+
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4,1fr);
+    
+    grid-template-areas: 
+        'one   one  one one   eight eight'
+        'two   two  two three eight eight'
+        'four  five six three eight eight'
+        'seven five six three nine  nine';
+}
+.box
+{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.box:hover
+{
+    transform: translateY(-2px) scale(1.05);
+}
+.box1
+{
+    background-color: #ffadad;
+    grid-area: one;
+
+}
+.box2
+{
+    background-color: #ffd6a5;
+    grid-area: two;
+}
+.box3
+{
+    background-color: #f2f593;
+    grid-area: three;
+}
+.box4
+{
+    background-color: #caffbf;
+    grid-area: four;
+}
+.box5
+{
+    background-color: #9bf6ff;
+    grid-area: five;
+}
+.box6
+{
+    background-color: #a0c4ff;
+    grid-area: six;
+}
+.box7
+{
+    background-color: #a0c4ff;
+    grid-area: seven;
+}
+.box8
+{
+    background-color: #bdb2ff;
+    grid-area: eight;
+
+}
+.box9
+{
+    background-color: #ffc6ff;
+    grid-area: nine;
+}
+
+@media (max-width:900px) {
+    .container
+    {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 25% 25% 25% 25% 33% 25% ;
+        
+        grid-template-areas: 
+            'one   one  one one   '
+            'two   two  two three '
+            'four  five six three '
+            'seven five six three '
+            'eight eight eight eight'
+            'nine nine nine nine '
+            ;
+    }
+}
+@media (max-width:700px) {
+    .container
+    {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 25% 25% 25% 25% 50% 33% 25%;
+        
+        grid-template-areas: 
+            'one   one'
+            'two   two'
+            'four three'
+            'seven three'
+            'five  six'
+            'eight eight'
+            'nine nine'
+            ;
+    }
+}
+
+</style>
